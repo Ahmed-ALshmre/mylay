@@ -182,7 +182,6 @@ class _FalterVelosState extends State<FalterVelos> {
           );
         });
   }
-
   Widget qouirePrice() {
     return ListView.builder(
         scrollDirection: Axis.horizontal,

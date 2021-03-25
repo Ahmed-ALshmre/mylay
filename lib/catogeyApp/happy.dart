@@ -198,7 +198,7 @@ class _HappyState extends State<Happy> {
                 width: 160,
                 decoration: BoxDecoration(
                   color: _selectedIndexPrice != null &&
-                          _selectedIndexPrice == index
+                      _selectedIndexPrice == index
                       ? Color(0xff03045e)
                       : Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -208,7 +208,7 @@ class _HappyState extends State<Happy> {
                   priceList[index],
                   style: TextStyle(
                       color: _selectedIndexPrice != null &&
-                              _selectedIndexPrice == index
+                          _selectedIndexPrice == index
                           ? Colors.white
                           : Colors.black,
                       fontSize: 16,

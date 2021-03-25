@@ -145,7 +145,6 @@ class _FalterEmpioisState extends State<FalterEmpiois> {
   _onSelectedPrice(int index) {
     setState(() => _selectedIndexPrice = index);
   }
-
   Widget qouireContry() {
     return ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -183,7 +182,6 @@ class _FalterEmpioisState extends State<FalterEmpiois> {
           );
         });
   }
-
   Widget qouirePrice() {
     return ListView.builder(
         scrollDirection: Axis.horizontal,

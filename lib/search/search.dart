@@ -49,6 +49,7 @@ class _SearchProductState extends State<SearchProduct> {
                               child: CustomCard(
                                 index: index,
                                 model: model,
+
                               ),
                             ),
                           ],
@@ -139,7 +140,7 @@ class _SearchProductState extends State<SearchProduct> {
       ),
     );
   }
-  // ignore: missing_return
+  //s ignore: missing_return
   Future startSearch(String query) async {
     listQuery = Firestore.instance
         .collection('all')

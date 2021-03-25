@@ -7,7 +7,7 @@ import 'package:mylcyskdndklcdldcmsdc/tools/siez.dart';
 import 'package:mylcyskdndklcdldcmsdc/tools/time.dart';
 import 'package:mylcyskdndklcdldcmsdc/toolsallwidget/textstyle.dart';
 
-
+import 'package:flutter_screenutil/screen_util.dart';
 class CustomCard extends StatefulWidget {
   final ItemModel model;
   final int index;
@@ -37,7 +37,7 @@ class _CustomCardState extends State<CustomCard> {
           Padding(
             padding: EdgeInsets.only(right: 10),
             child: Container(
-              width: _width / 3.2,
+              width: _width / 3.5,
               height: _height / 6,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -56,8 +56,8 @@ class _CustomCardState extends State<CustomCard> {
                   : Image.asset(
                       "assets/images/not.png",
                       fit: BoxFit.cover,
-                      width: getProportionateScreenWidth(50),
-                      height: getProportionateScreenHeight(50),
+                      width: ScreenUtil().setWidth(50),
+                      height: ScreenUtil().setHeight(50),
                     ),
             ),
           ),
@@ -65,12 +65,12 @@ class _CustomCardState extends State<CustomCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: getProportionateScreenHeight(6),
+                height: ScreenUtil().setHeight(6),
               ),
               Container(
-                  height: getProportionateScreenHeight(40),
-                  width: getProportionateScreenWidth(220),
-                  child: AutoSizeText(
+                  height: ScreenUtil().setHeight(40),
+                  width: ScreenUtil().setWidth(220),
+                  child: Text(
                     "${widget.model.title}",
                     style: textStyle2,
                   )),
@@ -87,7 +87,7 @@ class _CustomCardState extends State<CustomCard> {
                       child: Text(
                         "€ ${widget.model.price}",
                         style: TextStyle(
-                          fontSize: getProportionateScreenWidth(16),
+                          fontSize:ScreenUtil().setSp(16),
                         ),
                       ),
                     ),
@@ -100,7 +100,7 @@ class _CustomCardState extends State<CustomCard> {
                           "${widget.model.cato}",
                           softWrap: true,
                           style: TextStyle(
-                              fontSize: getProportionateScreenWidth(14)),
+                              fontSize: ScreenUtil().setSp(14)),
                         ),
                       ),
                     ),
@@ -108,7 +108,7 @@ class _CustomCardState extends State<CustomCard> {
                 ),
               ),
               SizedBox(
-                height: getProportionateScreenHeight(20),
+                height: ScreenUtil().setHeight(10),
               ),
               Container(
                 alignment: Alignment.centerRight,

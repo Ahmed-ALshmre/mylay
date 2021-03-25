@@ -5,7 +5,6 @@ import 'package:mylcyskdndklcdldcmsdc/Model/model.dart';
 import 'package:mylcyskdndklcdldcmsdc/addProduct/toolsUplode/listCat.dart';
 import 'package:mylcyskdndklcdldcmsdc/catogeyApp/searchAuto.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
-
 import 'auto.dart';
 
 

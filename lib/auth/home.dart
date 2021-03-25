@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mylcyskdndklcdldcmsdc/auth/otp.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:mylcyskdndklcdldcmsdc/tools/utles.dart';
 import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'package:mylcyskdndklcdldcmsdc/toolsallwidget/textstyle.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'uiAuth.dart';
+import 'package:mylcyskdndklcdldcmsdc/addProduct/addProductHome.dart';
 import 'package:flutter_screenutil/screen_util.dart';
+import 'uiAuth.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -54,11 +55,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: textStyle1,
                 )),
             Padding(
-              padding: EdgeInsets.only(top: ScreenUtil().setHeight(5), right: ScreenUtil().setWidth(8), left: ScreenUtil().setWidth(8)),
+              padding: EdgeInsets.only(
+                  top: ScreenUtil().setHeight(5),
+                  right: ScreenUtil().setWidth(8),
+                  left: ScreenUtil().setWidth(8)),
               child: listGat(),
             ),
             Padding(
-              padding: EdgeInsets.only(top: ScreenUtil().setHeight(20), right: ScreenUtil().setWidth(8), left: ScreenUtil().setWidth(8)),
+              padding: EdgeInsets.only(
+                  top: ScreenUtil().setHeight(20),
+                  right: ScreenUtil().setWidth(8),
+                  left: ScreenUtil().setWidth(8)),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -75,7 +82,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: ScreenUtil().setWidth(100),
                           alignment: Alignment.center,
                           child: CountryCodePicker(
-                            countryFilter: ['FR','BE','PT','DE', 'LU',],
+                            countryFilter: [
+                              'FR',
+                              'BE',
+                              'PT',
+                              'DE',
+                              'LU',
+                            ],
                             onChanged: (code) {
                               setState(() {
                                 print(code);
@@ -126,13 +139,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (_controller.text.length >= 4 &&
                       nameTextEditingController.text.isNotEmpty) {
                     EcommerceApp.sharedPreferences.setString("phone", number);
-                    EcommerceApp.sharedPreferences.setString("cont", dropdownValue);
+                    EcommerceApp.sharedPreferences
+                        .setString("cont", dropdownValue);
                     print(EcommerceApp.sharedPreferences.getString("cont"));
                     EcommerceApp.sharedPreferences
                         .setString("name", nameTextEditingController.text);
                     print(EcommerceApp.sharedPreferences.getString("name"));
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => OTPScreen(number)));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => AddProductsHome()));
                   } else {
                     Fluttertoast.showToast(
                         msg:

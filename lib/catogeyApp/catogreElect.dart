@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mylcyskdndklcdldcmsdc/Model/model.dart';
 import 'package:mylcyskdndklcdldcmsdc/addProduct/toolsUplode/listCat.dart';
+import 'package:mylcyskdndklcdldcmsdc/catogeyApp/searchHome.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
 import 'package:mylcyskdndklcdldcmsdc/search/search.dart';
 
 import 'homeCato.dart';
-
 
 class FalterElectr extends StatefulWidget {
   @override
@@ -23,7 +23,13 @@ class _FalterElectrState extends State<FalterElectr> {
     "De 1000 à 10 000",
     "Plus de 10 000",
   ];
-  List<String> contryList = ["luxembourg", "France","Belgique", "Deutschland", "Portugal"];
+  List<String> contryList = [
+    "luxembourg",
+    "France",
+    "Belgique",
+    "Deutschland",
+    "Portugal"
+  ];
   bool isCatoSel = false;
   int _selectedIndex;
   int _selectedIndexPrice;
@@ -156,7 +162,7 @@ class _FalterElectrState extends State<FalterElectr> {
           child: TextFormField(
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SearchProduct()));
+                  MaterialPageRoute(builder: (context) => SearchHome()));
             },
             cursorColor: Colors.orange[200],
             keyboardType: TextInputType.text,

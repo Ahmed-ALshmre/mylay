@@ -260,16 +260,14 @@ class _MainUIState extends State<MainUI> {
                 left: ScreenUtil().setWidth(10),
                 child: InkWell(
                   onTap: () {
-                    EcommerceApp.sharedPreferences.getString("phone") == null
-                        ? showDialog(
-                            context: context,
-                            builder: (context) {
-                              return LoadingAlertDialog();
-                            })
-                        : Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AddProductsHome()));
+                 EcommerceApp.sharedPreferences.getString('phone') ==null ?
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return LoadingAlertDialog();
+                      },
+                    ):
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProductsHome()));
                   },
                   child: Container(
                     height: ScreenUtil().setHeight(50),
@@ -292,7 +290,6 @@ class _MainUIState extends State<MainUI> {
       ),
     );
   }
-
   Widget _drawProducts() {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance

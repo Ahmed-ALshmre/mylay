@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screen_util.dart';
@@ -104,7 +103,7 @@ class _ReadDataState extends State<ReadData> {
                           thickness: 2,
                         ),
                         infoProduct(
-                          name: "\$ ${widget.model.price}",
+                          name: "\€ ${widget.model.price}",
                           qo: "${AppLocale.of(context).getTranslated("le prix")}",
                         ),
                         Divider(

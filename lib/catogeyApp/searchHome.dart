@@ -5,12 +5,12 @@ import 'package:mylcyskdndklcdldcmsdc/UI/Widgets/mainui_customcard.dart';
 import 'package:mylcyskdndklcdldcmsdc/catogeyApp/auto.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
 import 'package:mylcyskdndklcdldcmsdc/search/serchAppBar.dart';
-class SearchAuto extends StatefulWidget {
+class SearchHome extends StatefulWidget {
   @override
-  _SearchAutoState createState() => new _SearchAutoState();
+  _SearchHomeState createState() => new _SearchHomeState();
 }
 
-class _SearchAutoState extends State<SearchAuto> {
+class _SearchHomeState extends State<SearchHome> {
   Future<QuerySnapshot> listQuery;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,8 @@ class _SearchAutoState extends State<SearchAuto> {
                           child: Auto(
                             index: index,
                             model: model,
-                            sel :model.catoCar,
+                            sel :model.isHomeCatogrie,
+
                           ),
                         ),
                       ],
@@ -140,8 +141,8 @@ class _SearchAutoState extends State<SearchAuto> {
   // ignore: missing_return
   Future startSearch(String query) async {
     listQuery = Firestore.instance
-        .collection('Auto')
-        .where('categoryCar', isGreaterThanOrEqualTo: query)
+        .collection('une maison')
+        .where('isHomeCatogrie', isGreaterThanOrEqualTo: query)
         .getDocuments();
   }
 }
