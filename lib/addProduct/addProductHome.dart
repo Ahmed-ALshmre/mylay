@@ -61,8 +61,8 @@ class _AddProductsHomeState extends State<AddProductsHome> {
       });
     } else {
       setState(() {
-        dropdownValue = "Choisir";
-        dropdownValue2 = "Choisir";
+        dropdownValue = "Raussichen";
+        dropdownValue2 = "Raussichen";
       });
     }
   }
@@ -86,7 +86,7 @@ class _AddProductsHomeState extends State<AddProductsHome> {
       });
     } else {
       setState(() {
-        sel = allCatoFr;
+        sel = allCatoEn;
       });
     }
   }
@@ -116,7 +116,10 @@ class _AddProductsHomeState extends State<AddProductsHome> {
                 title:
                     "${AppLocale.of(context).getTranslated("Ajouter un produit")} :",
                 hint: "${AppLocale.of(context).getTranslated("titre")}"),
-            textFieldNum(context, priceTextEditingController),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: textFieldNum(context, priceTextEditingController),
+            ),
             Padding(
               padding:  EdgeInsets.all( ScreenUtil().setWidth(8.0)),
               child: Column(
@@ -130,7 +133,11 @@ class _AddProductsHomeState extends State<AddProductsHome> {
                   SizedBox(
                     height:  ScreenUtil().setHeight(8),
                   ),
-                  listGat(),
+                  Padding(
+                    padding: EdgeInsets.only( left: 8.0,right: 8),
+
+                   child: listGat(),
+                  ),
                 ],
               ),
             ),
@@ -218,4 +225,6 @@ class _AddProductsHomeState extends State<AddProductsHome> {
 
 // catogorie2
 // textFed
+
 }
+

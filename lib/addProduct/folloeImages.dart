@@ -62,6 +62,8 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
     contTextEditingController.dispose();
   }
 
+  String dropdownValueConuntre =
+      EcommerceApp.sharedPreferences.getString("cont");
   String dropdownValue;
   String dropdownValue2;
   bool isLast = false;
@@ -92,6 +94,7 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
       });
     } else {
       setState(() {
+        gesList = gesListEn;
         dropdownValue = "Raussichen";
         dropdownValue2 = "Raussichen";
       });
@@ -100,7 +103,7 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
 
   void selsGes() {}
   void selsctList() {
-    if (widget.catogSelcat == "Auto") {
+    if (widget.catogSelcat == "Auto" || widget.catogSelcat == 'Voitures') {
       setState(() {
         selctList = catogreCar;
       });
@@ -178,7 +181,6 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
 
   Widget buildGridView() {
     return Container(
-      height: 200,
       child: GridView.count(
         shrinkWrap: true,
         crossAxisCount: 4,
@@ -194,6 +196,14 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
     );
   }
 
+  String catogSelext;
+  List<String> contry = [
+    "luxembourg",
+    "France",
+    "Deutschland",
+    "Portugal",
+    "Belgique"
+  ];
   @override
   Widget build(BuildContext context) {
     contTextEditingController.text =
@@ -202,7 +212,16 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
-          actions: [],
+          actions: [
+            imageBool
+                ? IconButton(
+                    icon: Icon(Icons.attach_file_rounded),
+                    onPressed: () {
+                      loadAssets();
+                    },
+                  )
+                : Container(),
+          ],
           leading: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -220,7 +239,8 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
                 height: ScreenUtil().setHeight(20),
               ),
               imageBool
-                  ? Container(width: 400, height: 200, child: buildGridView())
+                  ? Container(
+                      width: ScreenUtil().setWidth(390), child: buildGridView())
                   : InkWell(
                       onTap: () {
                         loadAssets();
@@ -269,12 +289,9 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
                     SizedBox(
                       height: ScreenUtil().setHeight(5),
                     ),
-                    textField2(
-                      context,
-                      controller: contTextEditingController,
-                      hint: "${AppLocale.of(context).getTranslated("Stadt")}",
-                      title:
-                          "${AppLocale.of(context).getTranslated("Stadt")} :",
+                    Padding(
+                      padding: EdgeInsets.all(ScreenUtil().setWidth(10)),
+                      child: list1(),
                     ),
                     SizedBox(
                       height: ScreenUtil().setHeight(40),
@@ -299,7 +316,7 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
                                         categoryCar: dropdownValue,
                                         categoryCarGas: selcetGasCar,
                                         isHom: isHomeCatogrie,
-                                        cont: contTextEditingController.text,
+                                        cont: dropdownValueConuntre,
                                         address: textEditingController.text,
                                         newProduct: widget.newProduct,
                                       )));
@@ -456,39 +473,42 @@ class _SingleImageUploadState extends State<SingleImageUpload> {
     );
   }
 
-  // Future<void> loadAssets() async {
-  //   List<Asset> resultList = List<Asset>();
-  //   String error = 'No Error Dectected';
-  //   try {
-  //     resultList = await MultiImagePicker.pickImages(
-  //       maxImages: 20,
-  //       enableCamera: true,
-  //       selectedAssets: images,
-  //       cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
-  //       materialOptions: MaterialOptions(
-  //         actionBarColor: "#abcdef",
-  //         actionBarTitle: "Upload Image",
-  //         allViewTitle: "All Photos",
-  //         useDetailsView: false,
-  //         selectCircleStrokeColor: "#000000",
-  //       ),
-  //     );
-  //     setState(() {
-  //
-  //     });
-  //     print(resultList.length);
-  //     print((await resultList[0].getThumbByteData(122, 100)));
-  //     print((await resultList[0].getByteData()));
-  //     print((await resultList[0].metadata));
-  //   } on Exception catch (e) {
-  //     error = e.toString();
-  //   }
-  //   if (!mounted) return;
-  //   setState(() {
-  //     images = resultList;
-  //     _error = error;
-  //   });
-  // }
+  list1() {
+    return Container(
+      padding: EdgeInsets.all(10),
+      height: 60,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(),
+      ),
+      child: DropdownButton<String>(
+        isExpanded: true,
+        value: dropdownValueConuntre,
+        style: TextStyle(color: Colors.deepPurple),
+        underline: Container(
+          color: Colors.deepPurpleAccent,
+        ),
+        onChanged: (newValue) {
+          print(newValue);
+          setState(() {
+            dropdownValueConuntre = newValue;
+          });
+          print(dropdownValueConuntre);
+        },
+        items: contry.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(
+              value,
+              style: textStyle2,
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
   Future<void> loadAssets() async {
     List<Asset> resultList = <Asset>[];
     String error = 'No Error Detected';

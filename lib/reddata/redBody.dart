@@ -7,7 +7,6 @@ import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'package:mylcyskdndklcdldcmsdc/tools/siez.dart';
 import 'package:mylcyskdndklcdldcmsdc/tools/time.dart';
 import 'package:mylcyskdndklcdldcmsdc/toolsallwidget/textstyle.dart';
-
 import 'imageread.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:auto_size_text/auto_size_text.dart';

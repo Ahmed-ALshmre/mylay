@@ -7,7 +7,7 @@ import 'package:mylcyskdndklcdldcmsdc/addProduct/toolsUplode/listCat.dart';
 import 'package:mylcyskdndklcdldcmsdc/catogeyApp/searchHome.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
 import 'package:mylcyskdndklcdldcmsdc/search/search.dart';
-
+import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'homeCato.dart';
 
 class FalterElectr extends StatefulWidget {
@@ -73,6 +73,12 @@ class _FalterElectrState extends State<FalterElectr> {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "${AppLocale.of(context).getTranslated('Propriétés')}",
+        ),
+        elevation: 0,
+      ),
       body: RefreshIndicator(
         onRefresh: _futureRef,
         child: SingleChildScrollView(

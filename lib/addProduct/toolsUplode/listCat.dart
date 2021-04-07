@@ -7,7 +7,7 @@ List<String> allCatoFr = [
   "Quad",
   "Emplois",
   "PC",
-  "Auto",
+  "Voitures",
   "Camion",
   "animal domestique",
   "Divertissement", //this
@@ -265,6 +265,7 @@ List<String> gesListFr = [
   "Essence",
   "Diesel",
   "LPG",
+  "Raussichen",
   "Électrique",
   "Hybride",
   "GNV",

@@ -5,7 +5,6 @@ import 'package:mylcyskdndklcdldcmsdc/tools/utles.dart';
 
 import 'deletdcoement.dart';
 
-
 class DeletHome extends StatefulWidget {
   @override
   _DeletHomeState createState() => _DeletHomeState();
@@ -26,8 +25,8 @@ class _DeletHomeState extends State<DeletHome> {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance
           .collection('all')
-          .where("uid",
-              isEqualTo: EcommerceApp.sharedPreferences.getString("uid"))
+          .where("phone",
+              isEqualTo: EcommerceApp.sharedPreferences.getString("phone"))
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) return new Text('Error: ${snapshot.error}');

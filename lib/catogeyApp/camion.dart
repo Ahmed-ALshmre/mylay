@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mylcyskdndklcdldcmsdc/Model/model.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
-
+import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'auto.dart';
 
 class Trick extends StatefulWidget {
@@ -61,51 +61,54 @@ class _TrickState extends State<Trick> {
     chack();
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        body: RefreshIndicator(
-          onRefresh: _futureRef,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  color: Colors.grey[100],
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: ScreenUtil().setHeight(20),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "${AppLocale.of(context).getTranslated('Camion')}",
+        ),
+      ),
+      body: RefreshIndicator(
+        onRefresh: _futureRef,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: Colors.grey[100],
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: ScreenUtil().setHeight(20),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.only(left: ScreenUtil().setWidth(9)),
+                      child: Row(
+                        children: [
+                          textFeild(_height, _width),
+                          SizedBox(
+                            width: ScreenUtil().setWidth(20),
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsets.only(left: ScreenUtil().setWidth(9)),
-                        child: Row(
-                          children: [
-                            textFeild(_height, _width),
-                            SizedBox(
-                              width: ScreenUtil().setWidth(20),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Container(
-                          height: ScreenUtil().setHeight(45),
-                          child: qouireContry()),
-                      SizedBox(
-                        height: ScreenUtil().setHeight(6),
-                      ),
-                      Container(
-                          height: ScreenUtil().setHeight(45),
-                          child: qouirePrice()),
-                      getData(),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Container(
+                        height: ScreenUtil().setHeight(45),
+                        child: qouireContry()),
+                    SizedBox(
+                      height: ScreenUtil().setHeight(6),
+                    ),
+                    Container(
+                        height: ScreenUtil().setHeight(45),
+                        child: qouirePrice()),
+                    getData(),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

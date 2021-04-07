@@ -80,7 +80,7 @@ class _LightDrawerPageState extends State<LightDrawerPage> {
                 _buildRow(Icons.bookmark_border,
                     "${AppLocale.of(context).getTranslated("Mes spectacles")}",
                     () {
-                  EcommerceApp.sharedPreferences.getString("uid") != null
+                  EcommerceApp.sharedPreferences.getString("phone") != null
                       ? Navigator.push(context,
                           MaterialPageRoute(builder: (context) => DeletHome()))
                       : Fluttertoast.showToast(

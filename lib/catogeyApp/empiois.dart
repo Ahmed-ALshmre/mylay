@@ -5,7 +5,7 @@ import 'package:mylcyskdndklcdldcmsdc/addProduct/toolsUplode/listCat.dart';
 import 'package:mylcyskdndklcdldcmsdc/Model/model.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'auto.dart';
 class FalterEmpiois extends StatefulWidget {
 
@@ -69,6 +69,9 @@ class _FalterEmpioisState extends State<FalterEmpiois> {
     double _height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text( "${AppLocale.of(context).getTranslated('Articles ménagers')}"),
+        ),
         body: RefreshIndicator(
           onRefresh: _futureRef,
           child: SingleChildScrollView(

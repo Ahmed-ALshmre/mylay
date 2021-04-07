@@ -369,7 +369,7 @@ class _UrlWhatState extends State<UrlWhat> {
         imageUrls.add(downloadUrl.toString());
         if (imageUrls.length == widget.images.length) {
           String documnetID = DateTime.now().millisecondsSinceEpoch.toString();
-          String id = Random().nextInt(100000).toString() + '#';
+          String id = Random().nextInt(1000000).toString() + '#';
           Firestore.instance
               .collection(colegshen)
               .document(documnetID)

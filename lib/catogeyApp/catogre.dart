@@ -6,7 +6,7 @@ import 'package:mylcyskdndklcdldcmsdc/addProduct/toolsUplode/listCat.dart';
 import 'package:mylcyskdndklcdldcmsdc/catogeyApp/searchAuto.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
 import 'auto.dart';
-
+import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 
 class Falter extends StatefulWidget {
   final bool isPostef;
@@ -69,6 +69,10 @@ class _FalterState extends State<Falter> {
     double _height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("${AppLocale.of(context).getTranslated('Voitures')}",),
+          elevation: 0,
+          ),
         body: RefreshIndicator(
           onRefresh: _futureRef,
           child: SingleChildScrollView(

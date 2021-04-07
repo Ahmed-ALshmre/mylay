@@ -6,7 +6,7 @@ import 'package:mylcyskdndklcdldcmsdc/Model/model.dart';
 import 'package:mylcyskdndklcdldcmsdc/addProduct/toolsUplode/listCat.dart';
 import 'package:mylcyskdndklcdldcmsdc/reddata/reid.dart';
 import 'package:mylcyskdndklcdldcmsdc/search/search.dart';
-
+import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'homeCato.dart';
 
 class ClothesApp extends StatefulWidget {
@@ -70,77 +70,78 @@ class _ClothesAppState extends State<ClothesApp> {
     chack();
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        body: RefreshIndicator(
-          onRefresh: _futureRef,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  color: Colors.grey[100],
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Row(
-                          children: [
-                            textFeild(_height, _width),
-                            SizedBox(
-                              width: 20,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("${AppLocale.of(context).getTranslated('Vêtements')}",),
+      ),
+      body: RefreshIndicator(
+        onRefresh: _futureRef,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: Colors.grey[100],
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          textFeild(_height, _width),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          InkWell(
+                            child: Icon(
+                              Icons.filter_list_outlined,
+                              size: 40,
                             ),
-                            InkWell(
-                              child: Icon(
-                                Icons.filter_list_outlined,
-                                size: 40,
-                              ),
-                              onTap: () async {
-                                var list = await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => FilterPage(
-                                      allTextList: homeListFr,
-                                      selectedUserList: selectedUserList,
+                            onTap: () async {
+                              var list = await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FilterPage(
+                                    allTextList: homeListFr,
+                                    selectedUserList: selectedUserList,
 
-                                    ),
                                   ),
-                                );
-                                if (list != null) {
-                                  setState(() {
-                                    isCatoSel = true;
-                                    selectedUserList = List.from(list);
-                                  });
-                                } else if (list == 0) {
-                                  setState(() {
-                                    isCatoSel = false;
-                                  });
-                                }
-                              },
-                            )
+                                ),
+                              );
+                              if (list != null) {
+                                setState(() {
+                                  isCatoSel = true;
+                                  selectedUserList = List.from(list);
+                                });
+                              } else if (list == 0) {
+                                setState(() {
+                                  isCatoSel = false;
+                                });
+                              }
+                            },
+                          )
 
-                          ],
-                        ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Container(height: 45, child: qouireContry()),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Container(height: 45, child: qouirePrice()),
-                      Container(
-                        child: getData(),
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Container(height: 45, child: qouireContry()),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Container(height: 45, child: qouirePrice()),
+                    Container(
+                      child: getData(),
+                    )
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

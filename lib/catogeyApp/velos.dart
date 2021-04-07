@@ -66,46 +66,47 @@ class _FalterVelosState extends State<FalterVelos> {
     chack();
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        body: RefreshIndicator(
-          onRefresh: _futureRef,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  color: Colors.grey[100],
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text( "${AppLocale.of(context).getTranslated('moto')}",),
+      ),
+      body: RefreshIndicator(
+        onRefresh: _futureRef,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: Colors.grey[100],
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          textFeild(_height, _width),
+                          SizedBox(
+                            width: 20,
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Row(
-                          children: [
-                            textFeild(_height, _width),
-                            SizedBox(
-                              width: 20,
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Container(height: 45, child: qouireContry()),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Container(height: 45, child: qouirePrice()),
-                    getData(),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Container(height: 45, child: qouireContry()),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Container(height: 45, child: qouirePrice()),
+                  getData(),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

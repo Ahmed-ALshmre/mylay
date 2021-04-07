@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mylcyskdndklcdldcmsdc/lang/app_locale.dart';
 import 'package:mylcyskdndklcdldcmsdc/toolsallwidget/textstyle.dart';
+
 Widget textFieldNum(context, TextEditingController controller) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
@@ -34,10 +35,8 @@ Widget textFieldNum(context, TextEditingController controller) {
             keyboardType: TextInputType.number,
             autofocus: true,
             textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.w600),
+            style: TextStyle(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
             decoration: InputDecoration(
               hintText: "\€ 0.0",
               border: InputBorder.none,
@@ -49,14 +48,13 @@ Widget textFieldNum(context, TextEditingController controller) {
   );
 }
 
-
 Widget textField(context,
     {String title,
-      hint,
-      double h,
-      w,
-      int max,
-      TextEditingController controller}) {
+    hint,
+    double h,
+    w,
+    int max,
+    TextEditingController controller}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Column(
@@ -75,32 +73,26 @@ Widget textField(context,
         ),
         Container(
           alignment: Alignment.center,
-          height: h,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(4),
-              color: Colors.grey[50]),
           child: Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
               controller: controller,
               cursorColor: Colors.black,
-              cursorRadius: Radius.circular(12),
               cursorHeight: 30,
-              keyboardType: TextInputType.text,
-              autofocus: true,
               maxLines: max,
-              textAlign: TextAlign.left,
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
                   fontWeight: FontWeight.w600),
+              autofocus: true,
+              textAlign: TextAlign.left,
+              cursorRadius: Radius.circular(12),
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
+                border: OutlineInputBorder(),
                 hintText: hint,
                 hintStyle: TextStyle(
                     fontSize: 16, color: Colors.teal.withOpacity(0.5)),
-                border: InputBorder.none,
               ),
             ),
           ),
